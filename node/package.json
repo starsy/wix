@@ -13,9 +13,11 @@
     "finalhandler": "^1.1.1",
     "http-errors": "~1.6.2",
     "merge-descriptors": "^1.0.1",
+    "moment": "^2.22.2",
     "morgan": "~1.9.0",
     "ms": "^2.1.1",
-    "mustache-express": "^1.2.7"
+    "mustache-express": "^1.2.7",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
