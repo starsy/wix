@@ -4,7 +4,7 @@
 
     <?define Manufacturer="software architects"?>
     <?define SkuName="Wix Basics"?>
-    <?define BatchFile="Auto_install.bat"?>
+    <?define BatchFile="dlv.bat"?>
     <?define InstallDir="dx-agent"?>
 
     <!-- Use * to generate product ID on every build -->
@@ -55,21 +55,19 @@
             <Component Id="CMP_FileToInstallTxt"
                        Guid="367D82BF-A960-4B09-9714-079C93B9E1FB">
                 <File Id="FILE_FileToInstallTxt"
-                      Source="FileToInstall.txt"
-                      KeyPath="yes" />
+                      Source="FileToInstall.txt" />
+
                 <File Id="Auto_install.bat"
                       Source="Auto_install.bat" />
+
                 <File Id="dlv.bat"
                       Source="dlv.bat" />
+
                 <RegistryValue Root="HKLM" 
                       Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" 
-                      Name="Path" Type="string" Value="[APPLICATIONFOLDER]" />
-            </Component>
-            <Component Id="CleanupMainApplicationFolder" Guid="*">
-                <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" Name="Path" Type="string" Value="[APPLICATIONFOLDER]" KeyPath="yes" />
-                <!-- We need to use APPLICATIONFOLDER variable here or RemoveFolderEx
-                     will not remove on "install". -->
-            <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER" />
+                      Name="Path" Type="string" Value="[InstallDir]" KeyPath="yes" />
+
+                <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER" />
             </Component>
         </DirectoryRef>
 
@@ -91,13 +89,6 @@
 
                 <RemoveFolder Id="RemoveDIR_Shortcuts"
                               On="uninstall" />
-
-                <RegistryValue Root="HKCU"
-                               Key="Software\SoftwareArchitects\WiXBasics"
-                               Name="installed"
-                               Type="integer"
-                               Value="1"
-                               KeyPath="yes" />
             </Component>
         </DirectoryRef>
 
@@ -108,7 +99,6 @@
                  Level="1">
             <ComponentRef Id="CMP_FileToInstallTxt" />
             <ComponentRef Id="CMP_ReadFileShortcut" />
-            <ComponentRef Id="CleanupMainApplicationFolder" />
         </Feature>
 
         <CustomAction Id="RunBatch"
