@@ -56,17 +56,16 @@
                        Guid="367D82BF-A960-4B09-9714-079C93B9E1FB">
                 <File Id="FILE_FileToInstallTxt"
                       Source="FileToInstall.txt" />
-
                 <File Id="Auto_install.bat"
                       Source="Auto_install.bat" />
-
                 <File Id="dlv.bat"
                       Source="dlv.bat" />
-
                 <RegistryValue Root="HKLM" 
-                      Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" 
-                      Name="Path" Type="string" Value="[InstallDir]" KeyPath="yes" />
-
+                               Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" 
+                               Name="Path" 
+                               Type="string" 
+                               Value="[InstallDir]" 
+                               KeyPath="yes" />
                 <util:RemoveFolderEx On="uninstall" Property="APPLICATIONFOLDER" />
             </Component>
         </DirectoryRef>
@@ -89,6 +88,13 @@
 
                 <RemoveFolder Id="RemoveDIR_Shortcuts"
                               On="uninstall" />
+
+                <RegistryValue Root="HKCU"
+                               Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)"
+                               Name="Path"
+                               Type="string"
+                               Value="[InstallDir]" 
+                               KeyPath="yes" />
             </Component>
         </DirectoryRef>
 
