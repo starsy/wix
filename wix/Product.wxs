@@ -4,7 +4,7 @@
 
     <?define Manufacturer="!(loc.ManufacturerName)"?>
     <?define SkuName="!(loc.ApplicationName)"?>
-    <?define BatchFile="dlv.bat"?>
+    <?define BatchFileToRun="dlv.bat"?>
     <?define InstallDir="dx-agent"?>
     <?define UpgradeCode="F927BD33-9FD9-4A49-BD06-BA77BDD90CF2"?> 
 
@@ -115,7 +115,7 @@
         </Feature>
 
         <CustomAction Id="RunBatch"
-            ExeCommand="[InstallDir]$(var.BatchFile)"
+            ExeCommand="[InstallDir]$(var.BatchFileToRun)"
             Directory="InstallDir" Impersonate="yes" Execute="deferred" Return="check"/>
 
         <InstallExecuteSequence>
