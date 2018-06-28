@@ -2,4 +2,5 @@
 <WixLocalization Culture="zh-cn" xmlns="http://schemas.microsoft.com/wix/2006/localization">
     <String Id="ApplicationName">应用名</String>
     <String Id="ManufacturerName">应用制造商名</String>
+    <String Id="EulaRtf">eula_zh-cn.rtf</String>
 </WixLocalization>

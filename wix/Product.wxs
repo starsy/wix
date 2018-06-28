@@ -22,7 +22,7 @@
                  Description="Demo installer for $(var.SkuName)."
                  Comments="(c) 2018 $(var.Manufacturer)" />
 
-        <WixVariable Id="WixUILicenseRtf" Value="eula_zh-cn.rtf" />
+        <WixVariable Id="WixUILicenseRtf" Value="!(loc.EulaRtf)" />
 
         <Property Id="CMD">
             <DirectorySearch Id="SysDir" Path="[SystemFolder]" Depth="1">
