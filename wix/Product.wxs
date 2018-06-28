@@ -2,10 +2,11 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
 
-    <?define Manufacturer="software architects"?>
-    <?define SkuName="Wix Basics"?>
+    <?define Manufacturer="!(loc.ManufacturerName)"?>
+    <?define SkuName="!(loc.ApplicationName)"?>
     <?define BatchFile="dlv.bat"?>
     <?define InstallDir="dx-agent"?>
+    <?define UpgradeCode="F927BD33-9FD9-4A49-BD06-BA77BDD90CF2"?> 
 
     <!-- Use * to generate product ID on every build -->
     <Product Id="*"
@@ -13,13 +14,15 @@
              Language="1033"
              Version="1.0.0.0"
              Manufacturer="$(var.Manufacturer)"
-             UpgradeCode="58FB0E6C-94EF-4AFB-A067-A6DA6B17E10F">
+             UpgradeCode="$(var.UpgradeCode)">
 
         <Package Compressed="yes"
                  InstallScope="perMachine"
-                 Manufacturer="software architects"
-                 Description="Demo installer for learning WiX basics."
-                 Comments="(c) 2012 software architects" />
+                 Manufacturer="$(var.Manufacturer)"
+                 Description="Demo installer for $(var.SkuName)."
+                 Comments="(c) 2018 $(var.Manufacturer)" />
+
+        <WixVariable Id="WixUILicenseRtf" Value="eula_zh-cn.rtf" />
 
         <Property Id="CMD">
             <DirectorySearch Id="SysDir" Path="[SystemFolder]" Depth="1">
@@ -32,7 +35,11 @@
           Read the path value and set the APPLICATIONFOLDER property with the value.
         -->
         <Property Id="APPLICATIONFOLDER">
-            <RegistrySearch Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" Root="HKLM" Type="raw" Id="APPLICATIONFOLDER_REGSEARCH" Name="Path" />
+            <RegistrySearch Key="SOFTWARE\$(var.Manufacturer)\$(var.SkuName)" 
+                            Root="HKLM" 
+                            Type="raw" 
+                            Id="APPLICATIONFOLDER_REGSEARCH" 
+                            Name="Path" />
         </Property>
 
         <MediaTemplate EmbedCab="yes" />
@@ -45,7 +52,7 @@
                            Name="$(var.InstallDir)" />
                 <Directory Id="ProgramMenuFolder">
                     <Directory Id="DIR_Shortcuts"
-                               Name="WiX Basics" />
+                               Name="$(var.SkuName)" />
                 </Directory>
             </Directory>
         </Directory>
