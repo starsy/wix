@@ -3,4 +3,5 @@
     <String Id="ApplicationName">应用名</String>
     <String Id="ManufacturerName">应用制造商名</String>
     <String Id="EulaRtf">eula_zh-cn.rtf</String>
+    <String Id="NewerInstalled">已安装更新的版本</String>
 </WixLocalization>

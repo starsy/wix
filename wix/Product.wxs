@@ -24,6 +24,7 @@
 
         <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />      <!-- Remove repair -->
         <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
+        <MajorUpgrade DowngradeErrorMessage="!(loc.NewerInstalled)" AllowSameVersionUpgrades="yes" />
 
         <WixVariable Id="WixUILicenseRtf" Value="!(loc.EulaRtf)" />
 
