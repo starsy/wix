@@ -7,6 +7,7 @@
     <?define BatchFileToRun="dlv.bat"?>
     <?define InstallDir="dx-agent"?>
     <?define UpgradeCode="F927BD33-9FD9-4A49-BD06-BA77BDD90CF2"?> 
+    <?define EulaRtf="!(loc.EulaRtf)"?>
 
     <!-- Use * to generate product ID on every build -->
     <Product Id="*"
@@ -23,10 +24,11 @@
                  Comments="(c) 2018 $(var.Manufacturer)" />
 
         <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />      <!-- Remove repair -->
-        <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
         <MajorUpgrade DowngradeErrorMessage="!(loc.NewerInstalled)" AllowSameVersionUpgrades="yes" />
 
-        <WixVariable Id="WixUILicenseRtf" Value="!(loc.EulaRtf)" />
+        <!-- 
+        <WixVariable Id="WixUILicenseRtf" Value="$(var.EulaRtf)" /> 
+        -->
 
         <Property Id="CMD">
             <DirectorySearch Id="SysDir" Path="[SystemFolder]" Depth="1">
