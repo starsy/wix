@@ -22,6 +22,9 @@
                  Description="Demo installer for $(var.SkuName)."
                  Comments="(c) 2018 $(var.Manufacturer)" />
 
+        <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />      <!-- Remove repair -->
+        <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />      <!-- Remove modify -->
+
         <WixVariable Id="WixUILicenseRtf" Value="!(loc.EulaRtf)" />
 
         <Property Id="CMD">
