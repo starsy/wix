@@ -1,2 +1,2 @@
-"c:\Program Files (x86)\WiX Toolset v3.11\bin"\candle -ext WixUtilExtension Product.wxs 
-"c:\Program Files (x86)\WiX Toolset v3.11\bin"\light -ext WixUIExtension -ext WixUtilExtension -cultures:zh-cn -loc zh-cn.wxl -dWixUILicenseRtf=eula_zh-cn.rtf Product.wixobj 
+"c:\Program Files (x86)\WiX Toolset v3.11\bin"\candle -ext WixUtilExtension Product.wxs LicenseAgreementDlg.wxs ServerDlg.wxs InstallDirDlg.wxs WixUI.wxs
+"c:\Program Files (x86)\WiX Toolset v3.11\bin"\light -ext WixUIExtension -ext WixUtilExtension -cultures:en-us -loc en-us.wxl -dWixUILicenseRtf=eula_zh-cn.rtf Product.wixobj ServerDlg.wixobj LicenseAgreementDlg.wixobj InstallDirDlg.wixobj WixUI.wixobj -o Product.msi
