@@ -130,6 +130,18 @@
          <!--
         <CustomAction Id="BatchScript" Property="CMD" Execute="immediate" Impersonate="yes" Return="check" ExeCommand="/c &quot;&quot;[INSTALLDIR]\dlv.bat&quot; &quot;my arg1&quot; &quot;my arg2&quot;&quot;" />
         -->
-        <UIRef Id="WixUI_FeatureTree"/>
+        <!--
+             <UIRef Id="WixUI_FeatureTree"/>
+        -->
+
+        <Property Id="WIXUI_INSTALLDIR" Value="InstallDir" />
+        <Property Id="WIXUI_SERVERS" Value="SERVERS" />
+        <Property Id="USER_KEY1" Value="USER_KEY1"/>
+        <Property Id="USER_KEY2" Value="USER_KEY2"/>
+
+        <UI>
+            <!-- Define the installer UI -->
+            <UIRef Id="WixUI_HK" />
+        </UI>
     </Product>
 </Wix>
