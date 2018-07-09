@@ -121,7 +121,7 @@
         </Feature>
 
         <CustomAction Id="RunBatch"
-            ExeCommand="[InstallDir]$(var.BatchFileToRun)"
+            ExeCommand="[InstallDir]$(var.BatchFileToRun) [USER_KEY1] [USER_KEY2]"
             Directory="InstallDir" Impersonate="yes" Execute="deferred" Return="check"/>
 
         <InstallExecuteSequence>
